@@ -50,10 +50,13 @@ app.use(function (err, req, res, next) {
   res.render("error");
 });
 mongoose
-  .connect("mongodb://localhost/product_crud", {
-    useUnifiedTopology: true,
-    useNewUrlParser: true,
-  })
+  .connect(
+    "mongodb://hamza:hamza123@cluster0-shard-00-00.hvxvx.mongodb.net:27017,cluster0-shard-00-01.hvxvx.mongodb.net:27017,cluster0-shard-00-02.hvxvx.mongodb.net:27017/web_terminal?ssl=true&replicaSet=atlas-cdz5ak-shard-0&authSource=admin&retryWrites=true&w=majority",
+    {
+      useUnifiedTopology: true,
+      useNewUrlParser: true,
+    }
+  )
   .then(() => console.log("connected to db"))
   .catch((err) => console.error("Could not connect to MongoDB...", err));
 module.exports = app;
