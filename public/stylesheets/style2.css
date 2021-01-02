@@ -1,0 +1,47 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: lightgray;
+}
+
+a {
+  color: #00b7ff;
+}
+
+.jumbotron {
+  margin-top: 20px;
+  background-color: white;
+  color: black;
+}
+
+.center {
+  margin: 0px auto !important;
+}
+
+.an {
+  text-decoration: none;
+  list-style: none;
+  font-size: 20px;
+  color: black;
+  margin-right: 20px;
+  font-weight: bold;
+}
+
+.ann {
+  font-size: 15px;
+  color: black;
+  margin-right: 20px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+a:hover {
+  text-decoration: none;
+}
+
+.btn-dark {
+  background-color: black;
+  color: white;
+}
+
+.btn-warning {
+  color: white;
+}

@@ -7,5 +7,11 @@ block content
             input#name(type="text", class="form-control",name="name")
         div.form-group
             label(for="price") Enter Price
-            input#price(type="text", class="form-control",name="price")
+            input#price(type="number", class="form-control",name="price")
+        div.form-group
+            label(for="details") Enter Details
+            textarea#details.form-control(placeholder='Enter Product Details' required='',name="details")
+        div.form-group
+            label(for="price") Enter Image URL
+            input#img(type="text",placeholder="Enter Image URL", class="form-control",name="img")
         input(type="submit",class="btn btn-info")

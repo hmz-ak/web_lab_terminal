@@ -4,7 +4,7 @@ var productModel = require("../model/products");
 var checkSessionAuth = require("../middleware/checkSessionAuth");
 
 /* GET home page. */
-router.get("/", async function (req, res, next) {
+router.get("/dashboard", checkSessionAuth, async function (req, res, next) {
   var products = await productModel.find();
   res.render("products/list", { products });
 });
@@ -13,15 +13,18 @@ router.get("/add", checkSessionAuth, async function (req, res, next) {
 });
 
 router.post("/add", async function (req, res, next) {
-  var newProduct = req.body;
-  var product = new productModel(newProduct);
+  var product = new productModel();
+  product.name = req.body.name;
+  product.price = req.body.price;
+  product.details = req.body.details;
+  product.img = req.body.img;
   await product.save();
-  res.redirect("/products");
+  res.redirect("/products/dashboard");
 });
 
 router.get("/delete/:id", async function (req, res, next) {
   await productModel.findByIdAndDelete(req.params.id);
-  res.redirect("/products");
+  res.redirect("/products/dashboard");
 });
 
 router.get("/edit/:id", async function (req, res, next) {
@@ -36,32 +39,12 @@ router.post("/edit/:id", async function (req, res, next) {
   products.name = data.name;
   products.price = data.price;
   await products.save();
-  res.redirect("/products");
+  res.redirect("/products/dashboard");
 });
 
 router.get("/:id", async function (req, res, next) {
   await productModel.findByIdAndDelete(req.params.id);
-  res.redirect("/products");
-});
-
-router.get("/cart/:id", async function (req, res, next) {
-  var product = await productModel.findById(req.params.id);
-  let cart = [];
-  if (req.cookies.cart) cart = req.cookies.cart;
-  cart.push(product);
-  res.cookie("cart", cart);
-  res.redirect("/products");
-});
-
-router.get("/cart/delete/:id", async function (req, res, next) {
-  let cart = [];
-  if (req.cookies.cart) cart = req.cookies.cart;
-  cart.splice(
-    cart.findIndex((m) => m._id == req.params.id),
-    1
-  );
-  res.cookie("cart", cart);
-  res.redirect("/cart");
+  res.redirect("/products/dashboard");
 });
 
 module.exports = router;

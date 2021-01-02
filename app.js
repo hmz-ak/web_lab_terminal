@@ -13,7 +13,7 @@ var app = express();
 app.use(
   session({
     secret: "keyboard cat",
-    cookie: { maxAge: 60000 },
+    cookie: { maxAge: 10000000 },
   })
 );
 

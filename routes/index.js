@@ -1,15 +1,14 @@
 var express = require("express");
+var productModel = require("../model/products");
+
 var router = express.Router();
 
 /* GET home page. */
-router.get("/", function (req, res, next) {
+router.get("/", async function (req, res, next) {
+  var products = await productModel.find();
+
   console.log(req.session.user);
-  res.render("index", { title: "Express" });
-});
-router.get("/cart", function (req, res, next) {
-  let cart = req.cookies.cart;
-  if (!cart) cart = [];
-  res.render("cart", { cart });
+  res.render("products/productPage", { products });
 });
 
 module.exports = router;

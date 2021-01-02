@@ -8,4 +8,10 @@ block content
         div.form-group
             label(for="price") Enter Price
             input#price(type="text", class="form-control",name="price",value=products.price)
+        div.form-group
+            label(for="details") Enter Details
+            textarea#details.form-control(placeholder='Enter Product Details' required='',name="details")=products.details
+        div.form-group
+            label(for="price") Enter Image URL
+            input#img(type="text",placeholder="Enter Image URL", class="form-control",name="img",value=products.img)
         input(type="submit",class="btn btn-info")

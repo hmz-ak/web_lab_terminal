@@ -1,0 +1,64 @@
+extends ../layoutAdmin
+
+block content
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+        .container-fluid
+            button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNavAltMarkup' aria-controls='navbarNavAltMarkup' aria-expanded='false' aria-label='Toggle navigation')
+                span.navbar-toggler-icon
+            #navbarNavAltMarkup.collapse.navbar-collapse
+                .navbar-nav.center
+                    a.nav-link.active(aria-current='page' href='#') Home
+                    a.nav-link(href='#') Typography
+                    a.nav-link(href='#') Contact
+                    a.nav-link(href='#') My Account
+    .container
+        .jumbotron
+            h1.display-4.text-center Seller
+            hr
+            .container
+                row
+                    .container
+                        .row
+                            .col-4
+                            .col-7
+                                a.an(href="#") T-Shirt
+                                a.an(href="#") Hoodies
+                                a.an(href="#") Posters
+                                a.an(href="#") Albumbs
+                                a.an(href="")
+                                    <i class="fas fa-cart-plus"></i>
+                                a(href="/products/dashboard" ,class="btn btn-success") DASHBOARD
+
+                            .col-1
+        .jumbotron
+            .row
+                each product in products
+                    .col-3.mb-4
+                        .card(style='width: 14rem;')
+                            img.card-img-top(src=product.img alt='...')
+                            .card-body
+                                p.card-text
+                                    .text-center
+                                        a.an(href="")
+                                            | #{product.name}
+                                        section.rating-widget
+                                            .rating-stars.text-center
+                                                ul#stars
+                                                    li.star(title='Poor' data-value='1')
+                                                        i.fa.fa-star.fa-fw
+                                                    li.star(title='Fair' data-value='2')
+                                                        i.fa.fa-star.fa-fw
+                                                    li.star(title='Good' data-value='3')
+                                                        i.fa.fa-star.fa-fw
+                                                    li.star(title='Excellent' data-value='4')
+                                                        i.fa.fa-star.fa-fw
+                                                    li.star(title='WOW!!!' data-value='5')
+                                                        i.fa.fa-star.fa-fw
+                                            .success-box
+                                                .clearfix
+                                                img(alt='tick image' width='20' src='data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCA0MjYuNjY3IDQyNi42NjciIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQyNi42NjcgNDI2LjY2NzsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSI1MTJweCIgaGVpZ2h0PSI1MTJweCI+CjxwYXRoIHN0eWxlPSJmaWxsOiM2QUMyNTk7IiBkPSJNMjEzLjMzMywwQzk1LjUxOCwwLDAsOTUuNTE0LDAsMjEzLjMzM3M5NS41MTgsMjEzLjMzMywyMTMuMzMzLDIxMy4zMzMgIGMxMTcuODI4LDAsMjEzLjMzMy05NS41MTQsMjEzLjMzMy0yMTMuMzMzUzMzMS4xNTcsMCwyMTMuMzMzLDB6IE0xNzQuMTk5LDMyMi45MThsLTkzLjkzNS05My45MzFsMzEuMzA5LTMxLjMwOWw2Mi42MjYsNjIuNjIyICBsMTQwLjg5NC0xNDAuODk4bDMxLjMwOSwzMS4zMDlMMTc0LjE5OSwzMjIuOTE4eiIvPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K')
+                                                .text-message
+                                                .clearfix
+                                        p.ann
+                                            |$#{product.price}.00
+                                        a.an.mt-4(href="#",class="btn btn-dark btn-sm") Add To Cart

@@ -19,7 +19,7 @@ router.get("/logout", function (req, res, next) {
 router.post("/register", async function (req, res, next) {
   var user = new UserModel(req.body);
   await user.save();
-  res.redirect("/");
+  res.redirect("/products/dashboard");
 });
 
 router.post("/login", async function (req, res, next) {
@@ -29,7 +29,7 @@ router.post("/login", async function (req, res, next) {
   if (!user) return res.render("user/login");
   req.session.user = user;
 
-  res.redirect("/");
+  res.redirect("/products/dashboard");
 });
 
 module.exports = router;

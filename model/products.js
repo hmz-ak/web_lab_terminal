@@ -2,7 +2,9 @@ var mongoose = require("mongoose");
 
 var ProductSchema = mongoose.Schema({
   name: String,
-  price: String,
+  price: Number,
+  details: String,
+  img: String,
 });
 
 var productModel = mongoose.model("Product", ProductSchema);
